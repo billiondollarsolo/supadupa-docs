@@ -16,13 +16,6 @@ Supadupa's public edge path expects a control-plane domain and a wildcard projec
 
 You may use explicit `admin.example.com` and `api.example.com` records instead of, or in addition to, `*.example.com`.
 
-For `supadupa.brotechlabs.com`, use two wildcard records:
-
-```text
-*.supadupa.brotechlabs.com       A/AAAA  <server-ip>
-*.apps.supadupa.brotechlabs.com  A/AAAA  <server-ip>
-```
-
 ## Certificate Flow
 
 Traefik uses Cloudflare DNS-01 to issue certificates. The Cloudflare token must be able to edit DNS records for the zone.

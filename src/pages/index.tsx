@@ -15,12 +15,12 @@ const docGroups = [
   {
     title: 'Install',
     body: 'Run the local loopback path first, then move to a VPS with DNS and TLS.',
-    href: '/docs/quickstart/local-loopback',
+    href: '/docs/quickstart',
   },
   {
     title: 'Operate',
     body: 'Backups, upgrades, security, troubleshooting, and production-like review checklists.',
-    href: '/docs/operations/backups-recovery',
+    href: '/docs/operations',
   },
   {
     title: 'Integrate',

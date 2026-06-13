@@ -7,6 +7,10 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Quickstart',
       collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'quickstart/index',
+      },
       items: ['quickstart/local-loopback', 'quickstart/vps-dns-tls'],
     },
     {
@@ -25,6 +29,10 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Operations',
       collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'operations/index',
+      },
       items: [
         'operations/install',
         'operations/dns-tls',

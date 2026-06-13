@@ -70,12 +70,12 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/docs/quickstart/local-loopback',
+          to: '/docs/quickstart',
           position: 'left',
           label: 'Quickstart',
         },
         {
-          to: '/docs/operations/backups-recovery',
+          to: '/docs/operations',
           position: 'left',
           label: 'Operations',
         },
@@ -97,8 +97,8 @@ const config: Config = {
               to: '/docs/intro',
             },
             {
-              label: 'Local quickstart',
-              to: '/docs/quickstart/local-loopback',
+              label: 'Quickstart overview',
+              to: '/docs/quickstart',
             },
             {
               label: 'VPS quickstart',
@@ -110,8 +110,8 @@ const config: Config = {
           title: 'Operate',
           items: [
             {
-              label: 'DNS and TLS',
-              to: '/docs/operations/dns-tls',
+              label: 'Operations overview',
+              to: '/docs/operations',
             },
             {
               label: 'Backups and recovery',

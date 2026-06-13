@@ -47,13 +47,6 @@ Create records pointing at the VPS. A wildcard control-plane record can cover
 *.apps.example.com      A/AAAA  <server-ip>
 ```
 
-For the live Brotech Labs deployment shape, that is:
-
-```text
-*.supadupa.brotechlabs.com       A/AAAA  <server-ip>
-*.apps.supadupa.brotechlabs.com  A/AAAA  <server-ip>
-```
-
 ## Configure Supadupa
 
 ```bash
