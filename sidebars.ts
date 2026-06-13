@@ -3,6 +3,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docs: [
     'intro',
+    'admin-ui/screenshots',
     {
       type: 'category',
       label: 'Quickstart',
@@ -49,7 +50,6 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'admin-ui/overview',
-        'admin-ui/screenshots',
         'admin-ui/organizations',
         'admin-ui/projects',
         'admin-ui/connect',
