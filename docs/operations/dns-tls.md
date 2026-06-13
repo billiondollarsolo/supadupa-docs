@@ -10,14 +10,29 @@ Supadupa's public edge path expects a control-plane domain and a wildcard projec
 ## DNS Shape
 
 ```text
-admin.example.com       A/AAAA  <server-ip>
-api.example.com         A/AAAA  <server-ip>
+*.example.com           A/AAAA  <server-ip>
 *.apps.example.com      A/AAAA  <server-ip>
+```
+
+You may use explicit `admin.example.com` and `api.example.com` records instead of, or in addition to, `*.example.com`.
+
+For `supadupa.brotechlabs.com`, use two wildcard records:
+
+```text
+*.supadupa.brotechlabs.com       A/AAAA  <server-ip>
+*.apps.supadupa.brotechlabs.com  A/AAAA  <server-ip>
 ```
 
 ## Certificate Flow
 
 Traefik uses Cloudflare DNS-01 to issue certificates. The Cloudflare token must be able to edit DNS records for the zone.
+
+Supadupa `0.2.0` requests two wildcard certificate scopes:
+
+- Control plane: `*.example.com`, covering `admin.example.com` and `api.example.com`.
+- Project apps: `*.apps.example.com`, covering generated project API, Studio, Storage, DB, pooler, Realtime, and Functions hostnames.
+
+The apps wildcard is requested when a project route exists. On a fresh install with no projects, only the control-plane certificate may be present.
 
 ## Route Verification
 

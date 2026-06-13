@@ -30,6 +30,12 @@ Use clear sections:
 - Operational notes.
 - Docs links.
 
+## Source-Based Releases
+
+Supadupa releases are currently tagged source releases. The release contains the repository state: source code, migrations, Compose and Helm manifests, setup scripts, docs, changelog, and validation notes. It does not contain `.env`, runtime state, certificates, Docker volumes, or built container images.
+
+After tagging, rebuild the live stack from the tag and confirm `/v1/health` reports the release version and build SHA.
+
 ## Related Docs
 
 - [Docs workflow](./docs-workflow.md)

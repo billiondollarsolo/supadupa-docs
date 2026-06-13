@@ -9,6 +9,8 @@ Supadupa is a self-hosted, multi-project Supabase control plane. It lets an oper
 
 Each project receives its own public API, Studio, Postgres, pooler, Storage, Realtime, and Functions routes. The control plane provisions project runtimes, tracks state in a meta database, manages routes, and exposes operational surfaces for backups, logs, metrics, security, and settings.
 
+Current release: `0.2.0`. See [Upgrades](./operations/upgrades.md) for operator notes.
+
 :::warning MVP status
 Supadupa is in MVP shape. The Docker Compose backend is the supported runtime for evaluation and early operational testing. Kubernetes support exists as a renderer/operator contract, but it is not the primary MVP install path yet.
 :::
@@ -30,6 +32,8 @@ Supadupa is in MVP shape. The Docker Compose backend is the supported runtime fo
 - Custom domains with generated route/cert artifacts and BYO certificate upload.
 - Logical backups, physical backup plumbing, WAL archive plumbing, and recoverability reporting.
 - Stack release catalog and project upgrade guardrails.
+- HttpOnly browser admin sessions with origin checks and admin token-version invalidation.
+- Scoped Docker apply mode through a first-party Docker API proxy.
 - Compatibility test suite in the main repository.
 
 ## Not Hosted-Grade Yet

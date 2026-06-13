@@ -15,6 +15,9 @@ Configuration is currently managed through setup scripts, `.env`, platform defau
 | `CLOUDFLARE_API_TOKEN` | DNS-01 certificate automation token for VPS installs. |
 | `SUPADUPA_APPS_DOMAIN` | Seeds a fresh/default project domain. |
 | `SUPADUPA_PROJECT_DOMAIN` | Explicitly overrides the Admin UI project domain on restart. |
+| `SUPADUPA_POSTGRES_ADDR` | Host bind for the Traefik Postgres entrypoint; defaults to loopback. |
+| `SUPADUPA_POOLER_ADDR` | Host bind for the Traefik pooler entrypoint; defaults to loopback. |
+| `SUPADUPA_BUILD_SHA` | Build stamp reported by `/v1/health` when Docker images are built. |
 
 ## Domain Defaults
 
@@ -33,6 +36,8 @@ For edge/VPS mode:
 ```bash
 docker compose --env-file .env -f deploy/compose.yaml -f deploy/compose.apply.yaml --profile edge up -d --build
 ```
+
+`scripts/setup-compose.sh --mode vps` writes `.env` with mode `0600`, generates control-plane secrets, and stores the DNS provider token for Traefik renewal.
 
 ## Related Docs
 

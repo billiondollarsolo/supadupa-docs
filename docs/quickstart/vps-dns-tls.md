@@ -39,12 +39,19 @@ Plan for about 4 GB RAM per `full` profile project plus about 0.5 GB for the con
 
 ## Configure DNS
 
-Create records pointing at the VPS:
+Create records pointing at the VPS. A wildcard control-plane record can cover
+`admin` and `api`; explicit records are also fine.
 
 ```text
-admin.example.com       A/AAAA  <server-ip>
-api.example.com         A/AAAA  <server-ip>
+*.example.com           A/AAAA  <server-ip>
 *.apps.example.com      A/AAAA  <server-ip>
+```
+
+For the live Brotech Labs deployment shape, that is:
+
+```text
+*.supadupa.brotechlabs.com       A/AAAA  <server-ip>
+*.apps.supadupa.brotechlabs.com  A/AAAA  <server-ip>
 ```
 
 ## Configure Supadupa
@@ -63,7 +70,7 @@ scripts/setup-compose.sh \
   --bootstrap-email admin@example.com
 ```
 
-Postgres and pooler edge ports publish on `0.0.0.0` by default, but Traefik routing remains the access gate. Pass `--db-loopback` if the host should bind those ports to `127.0.0.1`.
+Postgres and pooler edge ports stay bound to `127.0.0.1` by default. Pass `--db-public-bind` only when external raw database clients are required, then also configure host/provider firewall rules and per-project database ingress.
 
 ## Start The Edge Stack
 
@@ -97,6 +104,8 @@ https://admin.example.com
 - A created project becomes `healthy`.
 - The project's API and Studio routes resolve under `*.apps.example.com`.
 - Traefik has issued certificates through DNS-01.
+- The control-plane wildcard certificate covers `*.example.com`.
+- The apps wildcard certificate covers `*.apps.example.com` after the first project route is created.
 
 ## Related Docs
 

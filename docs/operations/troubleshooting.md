@@ -37,6 +37,22 @@ docker compose --env-file .env -f deploy/compose.yaml -f deploy/compose.apply.ya
 | Project degraded | Check container health and memory pressure. |
 | TLS certificate missing | Check Cloudflare token, DNS zone, and Traefik logs. |
 | Backup target unreachable | Check target credentials, endpoint, bucket, and network egress. |
+| `govulncheck` returns `403` from `vuln.go.dev` | Run it from CI or another network; this is an external Go vulnerability DB access issue, not a Supadupa runtime failure. |
+| Admin/API reports an old build SHA | Update `SUPADUPA_BUILD_SHA` in `.env` or rerun `setup-compose.sh`, then rebuild the control-plane image. |
+
+## Version Check
+
+The public API reports the running platform version and build:
+
+```bash
+curl -fsS https://api.example.com/v1/health
+```
+
+Expected shape:
+
+```json
+{"status":"ok","version":"0.2.0","build":"<git-sha>"}
+```
 
 ## Project Health
 
