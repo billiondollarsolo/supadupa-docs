@@ -1,0 +1,205 @@
+.gallery {
+  margin-top: 24px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-card-background-color);
+}
+
+.segmented button,
+.close,
+.navButton,
+.card {
+  font: inherit;
+}
+
+.segmented button {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--ifm-color-emphasis-700);
+  background: transparent;
+  cursor: pointer;
+}
+
+.segmented button:hover,
+.segmented .active {
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.count {
+  margin: 0 0 18px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  overflow: hidden;
+  color: var(--ifm-font-color-base);
+  text-align: left;
+  background: var(--ifm-card-background-color);
+  cursor: zoom-in;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+.thumbFrame {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.thumbFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  border: 0;
+  border-radius: 0;
+}
+
+.cardMeta {
+  display: grid;
+  gap: 2px;
+  padding: 0 12px 12px;
+}
+
+.cardMeta span {
+  font-weight: 650;
+}
+
+.cardMeta small {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.72);
+  cursor: zoom-out;
+}
+
+.lightbox {
+  position: relative;
+  z-index: 1;
+  width: min(1500px, 100%);
+  max-height: min(900px, calc(100vh - 44px));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.lightboxHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.lightboxHeader div {
+  display: grid;
+  gap: 2px;
+}
+
+.lightboxHeader span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.88rem;
+}
+
+.close {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-card-background-color);
+  cursor: pointer;
+}
+
+.imageShell {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.imageShell img {
+  width: 100%;
+  max-height: calc(100vh - 150px);
+  object-fit: contain;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+}
+
+.navButton {
+  width: 42px;
+  height: 64px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  cursor: pointer;
+  font-size: 34px;
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .overlay {
+    padding: 8px;
+  }
+
+  .imageShell {
+    grid-template-columns: 1fr;
+  }
+
+  .navButton {
+    display: none;
+  }
+}
